@@ -6,7 +6,7 @@ import { fontVariables } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} - Learn with AI Assistance`,
+    default: `Pitch ${siteConfig.name} - Learn with AI Assistance`,
     template: `%s - ${siteConfig.name}`,
   },
   // metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
@@ -85,7 +85,7 @@ export default function RootLayout({
         />
         <meta content={META_THEME_COLORS.light} name="theme-color" />
       </head>
-      <body>
+      <body className="dark:bg-black">
         <Providers>{children}</Providers>
       </body>
     </html>

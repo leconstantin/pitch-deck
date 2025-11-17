@@ -11,9 +11,9 @@ export default function CalEmbeded() {
   return (
     <section className="container py-16">
       <Cal
-        calLink="rathon-webdev/30min"
+        calLink="le-con-wurltx/shure"
         config={{ layout: "month_view" }}
-        namespace="30min"
+        namespace="shure"
         style={{ width: "100%", height: "100%", overflow: "scroll" }}
       />
     </section>

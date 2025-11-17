@@ -17,8 +17,8 @@ export default function SectionNext() {
         </span>
       </div>
       <div className="flex flex-col min-h-screen justify-center container">
-        <div className="grid md:grid-cols-3 gap-8 px-4 md:px-0 md:pt-0 h-[580px] md:h-auto overflow-auto pb-[100px] md:pb-0">
-          <div className="space-y-8">
+        <div>
+          <div className="flex space-y-8">
             <Card className="min-h-[370px]">
               <h2 className="text-xl">Invoice</h2>
               <span />
@@ -37,30 +37,6 @@ export default function SectionNext() {
                 <Image src={engine} width={362} alt="Engine" quality={100} />
               </Card>
             </a>
-          </div>
-          <div className="space-y-8">
-            <Card className="min-h-[370px]">
-              <h2 className="text-xl">Midday AI</h2>
-              <span />
-              <Image src={ai} width={362} alt="Midday AI" quality={100} />
-            </Card>
-
-            <Card className="min-h-[370px]">
-              <h2 className="text-xl">Apps & integrations</h2>
-              <span />
-              <Image
-                src={apps}
-                width={362}
-                alt="Apps & integrations"
-                quality={100}
-              />
-            </Card>
-          </div>
-
-          <div className="ml-auto w-full max-w-[820px] h-full border border-border p-6 bg-[#0C0C0C]">
-            <h2 className="mb-24 block text-xl">Native app</h2>
-            <span />
-            <Image src={app} width={698} alt="App" quality={100} />
           </div>
         </div>
       </div>

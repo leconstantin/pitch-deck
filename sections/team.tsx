@@ -15,8 +15,8 @@ export default function SectionTeam() {
         </span>
       </div>
       <div className="flex flex-col min-h-screen justify-center container">
-        <div className="grid md:grid-cols-3 gap-8 px-4 md:px-0 md:pt-0 h-[580px] md:h-auto overflow-auto pb-[100px] md:pb-0">
-          <div className="space-y-8">
+        <div className="">
+          <div className="space-y-8 flex">
             <Card className="items-start space-y-0">
               <Image
                 src={pontus}
@@ -61,17 +61,9 @@ export default function SectionTeam() {
               </p>
             </Card>
           </div>
-          <div>
-            <Image
-              src={founders}
-              alt="Founders"
-              width={650}
-              height={875}
-              quality={100}
-            />
-          </div>
+
           <div className="ml-auto w-full space-y-8 items-center flex">
-            <h2 className="text-[64px] font-medium text-center leading-tight">
+            <h2 className="text-sm font-medium text-center leading-tight">
               “The speed and velocity we have together is unmatched.”
             </h2>
           </div>

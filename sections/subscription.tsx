@@ -55,7 +55,7 @@ export default function SectionSubscription() {
             </Card>
           </div>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <h2 className="text-2xl">Add ons</h2>
           </div>
 
@@ -103,7 +103,7 @@ export default function SectionSubscription() {
                 </p>
               </div>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

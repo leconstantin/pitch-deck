@@ -8,14 +8,14 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import SectionBook from "@/sections/book";
+import SectionDemo from "@/sections/demo";
 import SectionNext from "@/sections/next";
-import SectionDemo from "@/sections/section-demo";
-import SectionProblem from "@/sections/section-problem";
-import SectionSolution from "@/sections/section-solution";
-import { SectionStart } from "@/sections/section-start";
-import SectionSubscription from "@/sections/section-subscription";
-import SectionTraction from "@/sections/section-traction";
+import SectionProblem from "@/sections/problem";
+import SectionSolution from "@/sections/solution";
+import { SectionStart } from "@/sections/start";
+import SectionSubscription from "@/sections/subscription";
 import SectionTeam from "@/sections/team";
+import SectionTraction from "@/sections/traction";
 import SectionVision from "@/sections/vision";
 import CarouselToolbar from "./carousel-toolbar";
 

@@ -11,9 +11,7 @@ export default function SectionBook() {
         </span>
       </div>
       <div className="flex flex-col  justify-center container">
-        <div className=" text-center flex flex-col items-center justify-center">
-          <CalEmbed />
-        </div>
+        <CalEmbed />
       </div>
     </div>
   );

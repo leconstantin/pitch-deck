@@ -22,6 +22,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { ModeSwitcher } from "../custom/theme-switcher";
 
 type Props = {
   views: number;
@@ -121,7 +122,14 @@ export default function CarouselToolbar({ views }: Props) {
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <button type="button" onClick={() => api.scrollNext}>
+                    <button
+                      type="button"
+                      // onClick={() => api.scrollTo(100)}
+                      // onClick={() =>
+                      //   api &&
+                      //   (api as any).scrollTo(api.scrollSnapList().length - 1)
+                      // }
+                    >
                       <Icons.Calendar size={18} className="text-[#878787]" />
                     </button>
                   </TooltipTrigger>
@@ -149,6 +157,19 @@ export default function CarouselToolbar({ views }: Props) {
                     <span className="text-xs">Share</span>
                   </TooltipContent>
                 </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <DialogTrigger asChild>
+                      <ModeSwitcher className="text-muted-foreground" />
+                    </DialogTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    className="py-1 px-3 rounded-sm"
+                    sideOffset={25}
+                  >
+                    <span className="text-xs">Change Theme</span>
+                  </TooltipContent>
+                </Tooltip>
 
                 <div className="flex items-center border-l border-border pl-4">
                   <Tooltip>
@@ -156,7 +177,9 @@ export default function CarouselToolbar({ views }: Props) {
                       <button
                         type="button"
                         disabled={!api?.canScrollPrev}
-                        className={cn(!api?.canScrollPrev && "opacity-50")}
+                        className={cn(
+                          !api?.canScrollPrev && "opacity-50 cursor-pointer"
+                        )}
                         onClick={() => {
                           api.scrollPrev();
                         }}
@@ -176,7 +199,9 @@ export default function CarouselToolbar({ views }: Props) {
                       <button
                         type="button"
                         disabled={!api?.canScrollNext}
-                        className={cn(!api?.canScrollNext && "opacity-50")}
+                        className={cn(
+                          !api?.canScrollNext && "opacity-50 cursor-pointer"
+                        )}
                         onClick={() => {
                           api.scrollNext();
                         }}

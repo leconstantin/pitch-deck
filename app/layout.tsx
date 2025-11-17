@@ -85,7 +85,7 @@ export default function RootLayout({
         />
         <meta content={META_THEME_COLORS.light} name="theme-color" />
       </head>
-      <body className="dark:bg-black">
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

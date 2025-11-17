@@ -95,7 +95,7 @@ export function ThemeSwitcher() {
   );
 }
 
-export function ModeSwitcher() {
+export function ModeSwitcher({ className }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = useCallback(() => {
@@ -104,7 +104,10 @@ export function ModeSwitcher() {
 
   return (
     <Button
-      className="group/toggle extend-touch-target size-8 cursor-pointer"
+      className={cn(
+        "group/toggle extend-touch-target size-8 cursor-pointer",
+        className
+      )}
       onClick={toggleTheme}
       size="icon"
       title="Toggle theme"

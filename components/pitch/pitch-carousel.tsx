@@ -7,7 +7,16 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import SectionBook from "@/sections/book";
+import SectionNext from "@/sections/next";
+import SectionDemo from "@/sections/section-demo";
+import SectionProblem from "@/sections/section-problem";
+import SectionSolution from "@/sections/section-solution";
 import { SectionStart } from "@/sections/section-start";
+import SectionSubscription from "@/sections/section-subscription";
+import SectionTraction from "@/sections/section-traction";
+import SectionTeam from "@/sections/team";
+import SectionVision from "@/sections/vision";
 import CarouselToolbar from "./carousel-toolbar";
 
 export default function PitchCarusel() {
@@ -44,46 +53,49 @@ export default function PitchCarusel() {
   }, [api]);
 
   return (
-    <Carousel className="w-full font-inter min-h-full relative" setApi={setApi}>
-      <CarouselContent>
-        <CarouselItem>
+    <Carousel
+      className="w-full  dark:bg-black font-inter   relative"
+      setApi={setApi}
+    >
+      <CarouselContent className="">
+        <CarouselItem className="">
           <SectionStart />
         </CarouselItem>
         <CarouselItem>
-          Problem
-          {/* <SectionProblem /> */}
+          {/* Problem */}
+          <SectionProblem />
         </CarouselItem>
         <CarouselItem>
-          solution
-          {/* <SectionSolution /> */}
+          {/* solution */}
+          <SectionSolution />
         </CarouselItem>
         <CarouselItem>
-          demo
-          {/* <SectionDemo playVideo={current === 4} /> */}
+          {/* demo */}
+          <SectionDemo playVideo={current === 4} />
         </CarouselItem>
         <CarouselItem>
-          traction
-          {/* <SectionTraction /> */}
+          {/* traction */}
+          <SectionTraction />
         </CarouselItem>
         <CarouselItem>
-          team
-          {/* <SectionTeam /> */}
+          {/* team */}
+          <SectionTeam />
         </CarouselItem>
         <CarouselItem>
-          subscriptio
-          {/* <SectionSubscription /> */}
+          {/* subscriptio */}
+          <SectionSubscription />
         </CarouselItem>
         <CarouselItem>
-          vision
-          {/* <SectionVision /> */}
+          {/* vision */}
+          <SectionVision />
         </CarouselItem>
         <CarouselItem>
-          next
-          {/* <SectionNext /> */}
+          {/* next */}
+          <SectionNext />
         </CarouselItem>
         <CarouselItem>
-          book
-          {/* <SectionBook /> */}
+          {/* book */}
+          <SectionBook />
         </CarouselItem>
       </CarouselContent>
 

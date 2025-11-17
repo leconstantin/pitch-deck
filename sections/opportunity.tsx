@@ -1,4 +1,4 @@
-import { ExternalLinkIcon } from "lucide-react";
+import { CheckIcon, ExternalLinkIcon, HashIcon } from "lucide-react";
 import Link from "next/link";
 import SlideHeader from "@/components/pitch/slide-header";
 // import { Card } from "./ui";
@@ -14,42 +14,54 @@ import {
 
 const statistics = [
   {
-    number: "87%",
-    details:
-      "Limited digital literacy remains a barrier to e-learning adoption across Africa",
+    number: "$3.4B",
+    details: "Africa E-Learning Market (2024)",
     source: "UNICEF Rwanda Education Analysis (January 2024)",
     sourceLink:
       "https://www.unicef.org/rwanda/media/5346/file/UNICEF%20Rwanda.pdf",
   },
   {
-    number: "1M",
-    details: "1 million secondary-age pupils still in primary school",
+    number: "$7.7B",
+    details: "Projected Market (2033)",
     source: "UNICEF Rwanda Education Analysis (January 2024)",
     sourceLink:
       "https://www.unicef.org/rwanda/media/5346/file/UNICEF%20Rwanda.pdf",
   },
   {
-    number: "57:1",
-    details: "Student to trained teacher ratio (up to 120:1 in some areas)",
+    number: "19.2%",
+    details: "CAGR (2025-2034)",
     source: "UNICEF Rwanda Education Analysis (January 2024)",
-    sourceLink:
-      "https://www.unicef.org/rwanda/media/5346/file/UNICEF%20Rwanda.pdf",
-  },
-  {
-    number: "9.5%",
-    details: "Primary school dropout rate due to lack of support",
-    source: "UNICEF Rwanda Education Analysis (2024)",
     sourceLink:
       "https://www.unicef.org/rwanda/media/5346/file/UNICEF%20Rwanda.pdf",
   },
 ];
 
-export default function SectionProblem() {
+const includes = [
+  {
+    details: "13.2M population, 75% under 35 years old",
+  },
+  {
+    details: "20% of national budget allocated to education",
+  },
+  {
+    details: "Vision 2050: Transform into knowledge economy",
+  },
+  {
+    details: "Government actively promotes digital learning",
+  },
+  {
+    details: "Mobile-first population (high smartphone adoption)",
+  },
+  {
+    details: "Skills gap creates urgent demand for solutions",
+  },
+];
+export default function MarketOpportunity() {
   return (
     <div className="min-h-screen container relative w-screen">
-      <SlideHeader title="Current Problem" />
+      <SlideHeader title="Market Opportunity" />
       <div className="flex flex-col lg:px-6 gap-6 lg:gap-10 min-h-screen py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {statistics.map((stat, i) => (
             <Card key={i} className="rounded-lg">
               <CardHeader>
@@ -75,32 +87,30 @@ export default function SectionProblem() {
         </div>
         <div className="flex flex-col gap-6 ">
           <h2 className="text-lg lg:text-3xl font-semibold ">
-            Core Challenges:
+            Rwanda - Ideal Market Entry Point:
           </h2>
 
-          <div className=" text-muted-foreground flex flex-col gap-4 text-lg">
+          <div className=" text-foreground/90 grid grid-cols-2 gap-4 text-lg">
+            {includes.map((inc, i) => (
+              <div className="flex items-center gap-2" key={i}>
+                <CheckIcon />
+                <p>{inc.details}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-6 ">
+          <h2 className="text-lg lg:text-2xl font-semibold ">
+            AI in Education Market:
+          </h2>
+
+          <div className=" text-foreground/90 space-y-4 text-lg">
             <p>
-              <span className="font-semibold text-primary">Limited</span>{" "}
-              digital literacy and inadequate ICT infrastructure
+              Global AI Education market: $5.88B (2024) → $32.27B (2030) at
+              31.2% CAGR
             </p>
             <p>
-              <span className="font-semibold text-primary">
-                No immediate assistance
-              </span>{" "}
-              when learners encounter difficult concepts
-            </p>
-            <p>
-              Passive, static content{" "}
-              <span className="font-semibold text-primary">
-                without interactive support
-              </span>{" "}
-              leads to high dropout rates
-            </p>
-            <p>
-              <span className="font-semibold text-primary">
-                Skills mismatch
-              </span>{" "}
-              - 98% of agriculture workers haven't completed primary school
+              AI chatbots & virtual assistants are the fastest-growing segment
             </p>
           </div>
         </div>

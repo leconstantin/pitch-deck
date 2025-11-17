@@ -9,13 +9,14 @@ import {
 } from "@/components/ui/carousel";
 import SectionBook from "@/sections/book";
 import SectionDemo from "@/sections/demo";
+import GoToMarket from "@/sections/go-to-market";
+import SectionHowItWork from "@/sections/how";
+import BusinessModel from "@/sections/model";
 import SectionNext from "@/sections/next";
+import MarketOpportunity from "@/sections/opportunity";
 import SectionProblem from "@/sections/problem";
 import SectionSolution from "@/sections/solution";
 import { SectionStart } from "@/sections/start";
-import SectionSubscription from "@/sections/subscription";
-import SectionTeam from "@/sections/team";
-import SectionTraction from "@/sections/traction";
 import SectionVision from "@/sections/vision";
 import CarouselToolbar from "./carousel-toolbar";
 
@@ -24,6 +25,7 @@ export default function PitchCarusel() {
   const called = useRef(false);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     async function fetchViewsCount() {
@@ -45,6 +47,7 @@ export default function PitchCarusel() {
       return;
     }
 
+    setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
@@ -56,8 +59,12 @@ export default function PitchCarusel() {
     <Carousel
       className="w-full  dark:bg-black font-inter   relative"
       setApi={setApi}
+      // opts={{
+      //   align: "start",
+      //   loop: true,
+      // }}
     >
-      <CarouselContent className="">
+      <CarouselContent>
         <CarouselItem className="">
           <SectionStart />
         </CarouselItem>
@@ -70,20 +77,24 @@ export default function PitchCarusel() {
           <SectionSolution />
         </CarouselItem>
         <CarouselItem>
+          {/* how work*/}
+          <SectionHowItWork />
+        </CarouselItem>
+        <CarouselItem>
           {/* demo */}
           <SectionDemo playVideo={current === 4} />
         </CarouselItem>
         <CarouselItem>
-          {/* traction */}
-          <SectionTraction />
+          {/* market opport */}
+          <MarketOpportunity />
         </CarouselItem>
         <CarouselItem>
-          {/* team */}
-          <SectionTeam />
+          {/* model */}
+          <BusinessModel />
         </CarouselItem>
         <CarouselItem>
-          {/* subscriptio */}
-          <SectionSubscription />
+          {/* Go to market */}
+          <GoToMarket />
         </CarouselItem>
         <CarouselItem>
           {/* vision */}
@@ -99,7 +110,7 @@ export default function PitchCarusel() {
         </CarouselItem>
       </CarouselContent>
 
-      <CarouselToolbar views={views} />
+      <CarouselToolbar count={count} current={current} />
     </Carousel>
   );
 }

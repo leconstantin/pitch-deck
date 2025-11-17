@@ -1,18 +1,12 @@
-import Link from "next/link";
-import { Card } from "./ui";
+import SlideHeader from "@/components/pitch/slide-header";
 
 export default function SectionVision() {
   return (
-    <div className="min-h-screen relative w-screen">
-      <div className="absolute left-8 right-8 top-4 flex justify-between text-lg">
-        <span>Our vision</span>
-        <span className="text-[#878787]">
-          <Link href="/">midday.ai</Link>
-        </span>
-      </div>
-      <div className="flex flex-col min-h-screen justify-center container">
-        <h1 className="text-[45px] px-4 md:px-0 md:text-[122px] font-medium text-center leading-none">
-          Our mission is to be the #1 OS for businesses.
+    <div className="min-h-screen container relative w-screen">
+      <SlideHeader title="Our Vision" />
+      <div className="flex flex-col lg:px-6 gap-6 lg:gap-10 min-h-screen py-16">
+        <h1 className="text-[45px] px-4 md:px-0 md:text-[100px] font-medium text-center leading-none">
+          Our mission is to be the #1 Education Platform for learners.
         </h1>
       </div>
     </div>

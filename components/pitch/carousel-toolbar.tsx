@@ -1,5 +1,6 @@
 "use client";
 
+import { PresentationIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { FaXTwitter } from "react-icons/fa6";
@@ -25,7 +26,8 @@ import { cn } from "@/lib/utils";
 import { ModeSwitcher } from "../custom/theme-switcher";
 
 type Props = {
-  views: number;
+  count: number;
+  current: number;
 };
 
 const popupCenter = ({
@@ -73,11 +75,11 @@ const popupCenter = ({
   return newWindow;
 };
 
-export default function CarouselToolbar({ views }: Props) {
-  const api = useCarousel();
+export default function CarouselToolbar({ count, current }: Props) {
+  const { api, scrollNext, scrollPrev } = useCarousel();
 
-  useHotkeys("arrowRight", () => api.scrollNext(), [api]);
-  useHotkeys("arrowLeft", () => api.scrollPrev(), [api]);
+  useHotkeys("arrowRight", () => scrollNext(), [api]);
+  useHotkeys("arrowLeft", () => scrollPrev(), [api]);
 
   const handleOnShare = () => {
     const popup = popupCenter({
@@ -94,20 +96,16 @@ export default function CarouselToolbar({ views }: Props) {
     <Dialog>
       <div className="fixed flex justify-center left-0 bottom-5 w-full">
         <AnimatePresence>
-          <motion.div animate={{ y: views > 0 ? 0 : 100 }} initial={{ y: 100 }}>
+          <motion.div animate={{ y: count > 0 ? 0 : 100 }} initial={{ y: 100 }}>
             <TooltipProvider delayDuration={20}>
               <div className="flex backdrop-filter backdrop-blur-lg bg-popover h-10 px-4 py-2 border  items-center space-x-4">
                 <Tooltip>
                   <TooltipTrigger>
                     <div className="text-[#878787] flex items-center space-x-2 border-r border-border pr-4">
-                      <Icons.Visibility size={18} />
+                      <PresentationIcon size={18} />
 
                       <span className="text-sm">
-                        {Intl.NumberFormat("en", {
-                          notation: "compact",
-                          minimumFractionDigits: 0,
-                          maximumFractionDigits: 1,
-                        }).format(views ?? 0)}
+                        {current} / {count}
                       </span>
                     </div>
                   </TooltipTrigger>
@@ -122,14 +120,7 @@ export default function CarouselToolbar({ views }: Props) {
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <button
-                      type="button"
-                      // onClick={() => api.scrollTo(100)}
-                      // onClick={() =>
-                      //   api &&
-                      //   (api as any).scrollTo(api.scrollSnapList().length - 1)
-                      // }
-                    >
+                    <button type="button" onClick={() => api?.scrollTo(100)}>
                       <Icons.Calendar size={18} className="text-[#878787]" />
                     </button>
                   </TooltipTrigger>
@@ -181,7 +172,7 @@ export default function CarouselToolbar({ views }: Props) {
                           !api?.canScrollPrev && "opacity-50 cursor-pointer"
                         )}
                         onClick={() => {
-                          api.scrollPrev();
+                          scrollPrev();
                         }}
                       >
                         <Icons.ChevronLeft className="h-6 w-6" />
@@ -203,7 +194,7 @@ export default function CarouselToolbar({ views }: Props) {
                           !api?.canScrollNext && "opacity-50 cursor-pointer"
                         )}
                         onClick={() => {
-                          api.scrollNext();
+                          scrollNext();
                         }}
                       >
                         <Icons.ChevronRight className="h-6 w-6" />

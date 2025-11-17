@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { Icons } from "@/components/icons";
+import SlideHeader from "@/components/pitch/slide-header";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
@@ -59,12 +60,7 @@ export default function SectionDemo({ playVideo }: Props) {
   };
   return (
     <div className="min-h-screen container relative w-screen">
-      <div className="flex justify-between py-6 text-lg">
-        <span>Demo - Version 0.5 (Private beta)</span>
-        <span className="">
-          <Link href="/">midday.ai</Link>
-        </span>
-      </div>
+      <SlideHeader title="Demo - Version 0.1" />
       <div className="flex flex-col min-h-screen  justify-center container">
         <div className="group max-w-5xl mx-auto">
           <div className="absolute top-[50%] left-[50%] w-[200px] h-[50px] -ml-[100px] -mt-[50px] group-hover:opacity-100 hidden md:flex space-x-4 items-center justify-center opacity-0 z-30 transition-all">
